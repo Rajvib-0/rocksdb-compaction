@@ -1,0 +1,28 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python / Virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.venv
+
+# Experiment outputs
+experiments/*.csv
+experiments/*.log
+experiments/*.db
+experiments/*.png
+experiments/*.pdf
+
+# RocksDB source
+rocksdb/
+
+# Temporary files
+*.tmp
+*.temp
