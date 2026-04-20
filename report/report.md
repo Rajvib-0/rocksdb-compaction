@@ -385,11 +385,99 @@ SSTs remaining on disk:
 
 ---
 
-## Design Decisions
+# 4 Design Decisions
+
+### 4.1 Background Compaction using Dedicated Threads
+
+| Aspect      | Details |
+|-------------|---------|
+| **Problem** | Compaction reads and writes large amounts of data. Running it in the foreground would block user writes for long periods. |
+| **Decision** | Compaction runs asynchronously on a dedicated background thread pool. |
+| **Code**    | `db/db_impl/db_impl_compaction_flush.cc` → `MaybeScheduleFlushOrCompaction()` → `Env::Schedule()` |
+| **Trade-off** | Background threads share disk I/O with user operations. If compaction cannot keep up, L0 grows large, causing high read amplification and compaction lag. |
+
+### 4.2 Score-Based Priority for Choosing Levels
+
+| Aspect      | Details |
+|-------------|---------|
+| **Problem** | Multiple levels may need compaction at the same time. Deciding which one to run first is difficult. |
+| **Decision** | Use a normalized scoring system: L0 score is based on number of files, while higher levels use size ratio. The level with the highest score is compacted first. |
+| **Code**    | `db/version/version_storage_info.cc` → `VersionStorageInfo::ComputeCompactionScore()`<br>`db/compaction/compaction_picker_level.cc` → `LevelCompactionPicker::PickCompaction()` |
+| **Trade-off** | Fair and effective prioritization, but can lead to frequent small compactions or sudden "compaction storms" when several levels become eligible together. |
+
+### 4.3 Immutable SST Files
+
+| Aspect      | Details |
+|-------------|---------|
+| **Problem** | Allowing files to be modified in place would require heavy locking and increase risk of corruption during crashes. |
+| **Decision** | SST files are immutable — once written, they are never changed. New files are created during compaction and installed atomically through the MANIFEST. |
+| **Code**    | `table/block_based/block_based_table_builder.cc` (writing SST files)<br>`db/version_set.cc` → `VersionSet::LogAndApply()` (atomic version update) |
+| **Trade-off** | Enables safe concurrent reads and easy crash recovery, but is the main reason for high write amplification in LSM trees (data gets rewritten as it moves to higher levels). |
+
+### 4.4 Write Stalls as Intentional Backpressure
+
+| Aspect      | Details |
+|-------------|---------|
+| **Problem** | If background compaction falls behind, L0 grows too large and read performance degrades significantly. |
+| **Decision** | Introduce hard thresholds that slow down or completely stop user writes when L0 file count becomes too high. |
+| **Code**    | `db/db_impl/db_impl_write.cc` → `DBImpl::WriteImpl()` checks `level0_slowdown_writes_trigger` and `level0_stop_writes_trigger` |
+| **Trade-off** | Prevents silent performance degradation by making the problem visible immediately, but can cause latency spikes or timeouts in upstream systems. |
 
 ---
 
-## Concept Mapping
+# 5 Concept Mapping
+
+This section maps RocksDB compaction to important systems concepts taught in class.
+
+### 5.1 LSM Tree Architecture
+
+RocksDB is built on the **Log-Structured Merge (LSM) Tree** design.  
+- Writes first go to an in-memory MemTable and Write-Ahead Log (WAL).  
+- When the MemTable is full, it is flushed to immutable SST files in Level 0.  
+- Background compaction merges these files and moves data to higher levels.
+
+Compaction is the key mechanism that keeps the LSM tree efficient by removing old versions and tombstones.
+
+**Related Code:** `db/compaction/compaction_job.cc`
+
+### 5.2 Append-Only Logs and Segment Compaction
+
+Similar to traditional log-based systems (like Kafka segments), RocksDB uses append-only writes.  
+Old and duplicate data is cleaned up by merging segments (SST files) during compaction.
+
+**Mapping to RocksDB:**
+- WAL acts as the append-only log.
+- SST files act as segments.
+- Compaction merges segments and drops stale data.
+
+**Related Code:** `CompactionIterator::Next()` in `db/compaction/compaction_iterator.cc`
+
+### 5.3 External Merge Sort (from MapReduce)
+
+RocksDB compaction uses the same idea as the **reduce phase in MapReduce**.  
+Multiple sorted SST files are merged using a **K-way merge** with a min-heap.
+
+**Code:** `MergingIterator::Next()` in `table/merging_iterator.cc`
+
+This produces one clean sorted output file, just like merging spill files in MapReduce.
+
+### 5.4 B-Tree vs LSM Tree (Storage Structures)
+
+| Aspect                | B-Tree                          | LSM Tree (RocksDB)                     |
+|-----------------------|---------------------------------|----------------------------------------|
+| Write Pattern         | Random I/O (in-place updates)   | Sequential I/O (append-only)           |
+| Read Performance      | Fast (single lookup)            | Slower (check multiple levels/files)   |
+| Write Amplification   | Low                             | High (data rewritten during compaction)|
+| Compaction Needed?    | No                              | Yes (mandatory for cleaning data)      |
+
+RocksDB chooses LSM because modern SSDs are good at sequential writes, and write-heavy workloads benefit more from this design.
+
+### 5.5 RocksDB as State Store in Stream Processing
+
+Many stream processing systems (Kafka Streams, Flink, etc.) use RocksDB as their embedded state store.  
+These systems handle continuous unbounded data, so state keeps growing with new versions and deletes.
+
+Compaction is critical here — without it, disk usage would grow forever. Compaction keeps the state store clean and prevents disk exhaustion in long-running jobs.
 
 ---
 
