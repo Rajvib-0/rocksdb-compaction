@@ -381,7 +381,40 @@ SSTs remaining on disk:
 > the refcount to zero. 30 old files → 1 clean file. Read Amplification: 19 → 1.
 ---
 
-## Compaction Algorithm
+# 3 Compaction Algorithm
+
+RocksDB uses **Leveled Compaction** by default. The following diagram shows the simple step-by-step flow of how compaction works.
+
+**Figure 3.1: Leveled Compaction Algorithm Flow in RocksDB**
+
+
+### Simple Explanation of the Flow
+
+1. **Compaction Trigger**  
+   RocksDB checks if L0 has too many files (default 4) or if any level has exceeded its target size.
+
+2. **Select Files**  
+   It picks overlapping SST files from the chosen level and the next level.
+
+3. **Merge Phase**  
+   Uses a multi-way merge iterator to compare keys from all input files in sorted order.
+
+4. **Key Decision**  
+   - Keep the **newest version** of each key.
+   - Drop old versions and tombstones (when they reach the bottom level).
+
+5. **Write Output**  
+   Write the cleaned data into new SSTable(s) in the next level (L+1).
+
+6. **Finalize**  
+   Update the MANIFEST file and delete the old SST files.
+
+This entire process runs in the **background**, so user reads and writes are not blocked.
+
+**Key Code Files:**
+- `db/compaction/compaction_picker_level.cc` — decides which files to compact
+- `db/compaction/compaction_job.cc` — runs the merge
+- `db/compaction/compaction_iterator.cc` — decides which keys to keep or drop
 
 ---
 
