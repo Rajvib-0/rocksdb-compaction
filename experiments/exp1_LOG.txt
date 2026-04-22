@@ -1,0 +1,454 @@
+2026/04/21-04:55:57.504688 7ff7be3cfac0 RocksDB version: 6.11.4
+2026/04/21-04:55:57.504735 7ff7be3cfac0 Git sha rocksdb_build_git_sha:
+2026/04/21-04:55:57.504737 7ff7be3cfac0 Compile date Dec 10 2020
+2026/04/21-04:55:57.504740 7ff7be3cfac0 DB SUMMARY
+2026/04/21-04:55:57.504829 7ff7be3cfac0 CURRENT file:  CURRENT
+2026/04/21-04:55:57.504830 7ff7be3cfac0 IDENTITY file:  IDENTITY
+2026/04/21-04:55:57.504834 7ff7be3cfac0 MANIFEST file:  MANIFEST-000281 size: 3157 Bytes
+2026/04/21-04:55:57.504835 7ff7be3cfac0 SST files in /tmp/rocksdb_exp1 dir, Total Num: 49, files: 000004.sst 000007.sst 000010.sst 000013.sst 000016.sst 000022.sst 000028.sst 000034.sst 000040.sst 
+2026/04/21-04:55:57.504837 7ff7be3cfac0 Write Ahead Log file in /tmp/rocksdb_exp1: 000282.log size: 37 ; 
+2026/04/21-04:55:57.504839 7ff7be3cfac0                         Options.error_if_exists: 0
+2026/04/21-04:55:57.504839 7ff7be3cfac0                       Options.create_if_missing: 0
+2026/04/21-04:55:57.504840 7ff7be3cfac0                         Options.paranoid_checks: 1
+2026/04/21-04:55:57.504841 7ff7be3cfac0                                     Options.env: 0x574207ac0f80
+2026/04/21-04:55:57.504842 7ff7be3cfac0                                      Options.fs: Posix File System
+2026/04/21-04:55:57.504843 7ff7be3cfac0                                Options.info_log: 0x574238db16f0
+2026/04/21-04:55:57.504843 7ff7be3cfac0                Options.max_file_opening_threads: 16
+2026/04/21-04:55:57.504844 7ff7be3cfac0                              Options.statistics: (nil)
+2026/04/21-04:55:57.504845 7ff7be3cfac0                               Options.use_fsync: 0
+2026/04/21-04:55:57.504846 7ff7be3cfac0                       Options.max_log_file_size: 0
+2026/04/21-04:55:57.504846 7ff7be3cfac0                  Options.max_manifest_file_size: 1073741824
+2026/04/21-04:55:57.504847 7ff7be3cfac0                   Options.log_file_time_to_roll: 0
+2026/04/21-04:55:57.504848 7ff7be3cfac0                       Options.keep_log_file_num: 1000
+2026/04/21-04:55:57.504849 7ff7be3cfac0                    Options.recycle_log_file_num: 0
+2026/04/21-04:55:57.504849 7ff7be3cfac0                         Options.allow_fallocate: 1
+2026/04/21-04:55:57.504850 7ff7be3cfac0                        Options.allow_mmap_reads: 0
+2026/04/21-04:55:57.504851 7ff7be3cfac0                       Options.allow_mmap_writes: 0
+2026/04/21-04:55:57.504851 7ff7be3cfac0                        Options.use_direct_reads: 0
+2026/04/21-04:55:57.504852 7ff7be3cfac0                        Options.use_direct_io_for_flush_and_compaction: 0
+2026/04/21-04:55:57.504853 7ff7be3cfac0          Options.create_missing_column_families: 0
+2026/04/21-04:55:57.504853 7ff7be3cfac0                              Options.db_log_dir: 
+2026/04/21-04:55:57.504854 7ff7be3cfac0                                 Options.wal_dir: /tmp/rocksdb_exp1
+2026/04/21-04:55:57.504855 7ff7be3cfac0                Options.table_cache_numshardbits: 6
+2026/04/21-04:55:57.504856 7ff7be3cfac0                      Options.max_subcompactions: 1
+2026/04/21-04:55:57.504856 7ff7be3cfac0                         Options.WAL_ttl_seconds: 0
+2026/04/21-04:55:57.504857 7ff7be3cfac0                       Options.WAL_size_limit_MB: 0
+2026/04/21-04:55:57.504858 7ff7be3cfac0                        Options.max_write_batch_group_size_bytes: 1048576
+2026/04/21-04:55:57.504858 7ff7be3cfac0             Options.manifest_preallocation_size: 4194304
+2026/04/21-04:55:57.504859 7ff7be3cfac0                     Options.is_fd_close_on_exec: 1
+2026/04/21-04:55:57.504860 7ff7be3cfac0                   Options.advise_random_on_open: 1
+2026/04/21-04:55:57.504861 7ff7be3cfac0                    Options.db_write_buffer_size: 0
+2026/04/21-04:55:57.504861 7ff7be3cfac0                    Options.write_buffer_manager: 0x574238db1fd0
+2026/04/21-04:55:57.504862 7ff7be3cfac0         Options.access_hint_on_compaction_start: 1
+2026/04/21-04:55:57.504863 7ff7be3cfac0  Options.new_table_reader_for_compaction_inputs: 0
+2026/04/21-04:55:57.504863 7ff7be3cfac0           Options.random_access_max_buffer_size: 1048576
+2026/04/21-04:55:57.504864 7ff7be3cfac0                      Options.use_adaptive_mutex: 0
+2026/04/21-04:55:57.504869 7ff7be3cfac0                            Options.rate_limiter: (nil)
+2026/04/21-04:55:57.504870 7ff7be3cfac0     Options.sst_file_manager.rate_bytes_per_sec: 0
+2026/04/21-04:55:57.504871 7ff7be3cfac0                       Options.wal_recovery_mode: 2
+2026/04/21-04:55:57.504872 7ff7be3cfac0                  Options.enable_thread_tracking: 0
+2026/04/21-04:55:57.504872 7ff7be3cfac0                  Options.enable_pipelined_write: 0
+2026/04/21-04:55:57.504873 7ff7be3cfac0                  Options.unordered_write: 0
+2026/04/21-04:55:57.504874 7ff7be3cfac0         Options.allow_concurrent_memtable_write: 1
+2026/04/21-04:55:57.504875 7ff7be3cfac0      Options.enable_write_thread_adaptive_yield: 1
+2026/04/21-04:55:57.504875 7ff7be3cfac0             Options.write_thread_max_yield_usec: 100
+2026/04/21-04:55:57.504876 7ff7be3cfac0            Options.write_thread_slow_yield_usec: 3
+2026/04/21-04:55:57.504877 7ff7be3cfac0                               Options.row_cache: None
+2026/04/21-04:55:57.504877 7ff7be3cfac0                              Options.wal_filter: None
+2026/04/21-04:55:57.504878 7ff7be3cfac0             Options.avoid_flush_during_recovery: 0
+2026/04/21-04:55:57.504879 7ff7be3cfac0             Options.allow_ingest_behind: 0
+2026/04/21-04:55:57.504880 7ff7be3cfac0             Options.preserve_deletes: 0
+2026/04/21-04:55:57.504880 7ff7be3cfac0             Options.two_write_queues: 0
+2026/04/21-04:55:57.504881 7ff7be3cfac0             Options.manual_wal_flush: 0
+2026/04/21-04:55:57.504881 7ff7be3cfac0             Options.atomic_flush: 0
+2026/04/21-04:55:57.504882 7ff7be3cfac0             Options.avoid_unnecessary_blocking_io: 0
+2026/04/21-04:55:57.504883 7ff7be3cfac0                 Options.persist_stats_to_disk: 0
+2026/04/21-04:55:57.504883 7ff7be3cfac0                 Options.write_dbid_to_manifest: 0
+2026/04/21-04:55:57.504884 7ff7be3cfac0                 Options.log_readahead_size: 0
+2026/04/21-04:55:57.504885 7ff7be3cfac0                 Options.file_checksum_gen_factory: Unknown
+2026/04/21-04:55:57.504886 7ff7be3cfac0                 Options.best_efforts_recovery: 0
+2026/04/21-04:55:57.504886 7ff7be3cfac0             Options.max_background_jobs: 2
+2026/04/21-04:55:57.504887 7ff7be3cfac0             Options.max_background_compactions: -1
+2026/04/21-04:55:57.504888 7ff7be3cfac0             Options.avoid_flush_during_shutdown: 0
+2026/04/21-04:55:57.504888 7ff7be3cfac0           Options.writable_file_max_buffer_size: 1048576
+2026/04/21-04:55:57.504889 7ff7be3cfac0             Options.delayed_write_rate : 16777216
+2026/04/21-04:55:57.504890 7ff7be3cfac0             Options.max_total_wal_size: 0
+2026/04/21-04:55:57.504891 7ff7be3cfac0             Options.delete_obsolete_files_period_micros: 21600000000
+2026/04/21-04:55:57.504891 7ff7be3cfac0                   Options.stats_dump_period_sec: 600
+2026/04/21-04:55:57.504892 7ff7be3cfac0                 Options.stats_persist_period_sec: 600
+2026/04/21-04:55:57.504893 7ff7be3cfac0                 Options.stats_history_buffer_size: 1048576
+2026/04/21-04:55:57.504893 7ff7be3cfac0                          Options.max_open_files: -1
+2026/04/21-04:55:57.504894 7ff7be3cfac0                          Options.bytes_per_sync: 0
+2026/04/21-04:55:57.504895 7ff7be3cfac0                      Options.wal_bytes_per_sync: 0
+2026/04/21-04:55:57.504896 7ff7be3cfac0                   Options.strict_bytes_per_sync: 0
+2026/04/21-04:55:57.504896 7ff7be3cfac0       Options.compaction_readahead_size: 0
+2026/04/21-04:55:57.504897 7ff7be3cfac0                  Options.max_background_flushes: -1
+2026/04/21-04:55:57.504898 7ff7be3cfac0 Compression algorithms supported:
+2026/04/21-04:55:57.504899 7ff7be3cfac0 	kZSTDNotFinalCompression supported: 1
+2026/04/21-04:55:57.504900 7ff7be3cfac0 	kZSTD supported: 1
+2026/04/21-04:55:57.504901 7ff7be3cfac0 	kXpressCompression supported: 0
+2026/04/21-04:55:57.504902 7ff7be3cfac0 	kLZ4HCCompression supported: 1
+2026/04/21-04:55:57.504903 7ff7be3cfac0 	kLZ4Compression supported: 1
+2026/04/21-04:55:57.504903 7ff7be3cfac0 	kBZip2Compression supported: 1
+2026/04/21-04:55:57.504907 7ff7be3cfac0 	kZlibCompression supported: 1
+2026/04/21-04:55:57.504908 7ff7be3cfac0 	kSnappyCompression supported: 1
+2026/04/21-04:55:57.504910 7ff7be3cfac0 Fast CRC32 supported: Not supported on x86
+2026/04/21-04:55:57.504950 7ff7be3cfac0 [/version_set.cc:4554] Recovering from manifest file: /tmp/rocksdb_exp1/MANIFEST-000281
+2026/04/21-04:55:57.504989 7ff7be3cfac0 [/column_family.cc:577] --------------- Options for column family [default]:
+2026/04/21-04:55:57.504990 7ff7be3cfac0               Options.comparator: leveldb.BytewiseComparator
+2026/04/21-04:55:57.504991 7ff7be3cfac0           Options.merge_operator: StringAppendOperator
+2026/04/21-04:55:57.504992 7ff7be3cfac0        Options.compaction_filter: None
+2026/04/21-04:55:57.504993 7ff7be3cfac0        Options.compaction_filter_factory: None
+2026/04/21-04:55:57.504994 7ff7be3cfac0         Options.memtable_factory: SkipListFactory
+2026/04/21-04:55:57.504994 7ff7be3cfac0            Options.table_factory: BlockBasedTable
+2026/04/21-04:55:57.505021 7ff7be3cfac0            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x574238dad930)
+  cache_index_and_filter_blocks: 0
+  cache_index_and_filter_blocks_with_high_priority: 1
+  pin_l0_filter_and_index_blocks_in_cache: 0
+  pin_top_level_index_and_filter: 1
+  index_type: 0
+  data_block_index_type: 0
+  index_shortening: 1
+  data_block_hash_table_util_ratio: 0.750000
+  hash_index_allow_collision: 1
+  checksum: 1
+  no_block_cache: 0
+  block_cache: 0x574238d9cbb0
+  block_cache_name: LRUCache
+  block_cache_options:
+    capacity : 8388608
+    num_shard_bits : 4
+    strict_capacity_limit : 0
+    memory_allocator : None
+    high_pri_pool_ratio: 0.000
+  block_cache_compressed: (nil)
+  persistent_cache: (nil)
+  block_size: 4096
+  block_size_deviation: 10
+  block_restart_interval: 16
+  index_block_restart_interval: 1
+  metadata_block_size: 4096
+  partition_filters: 0
+  use_delta_encoding: 1
+  filter_policy: nullptr
+  whole_key_filtering: 1
+  verify_compression: 0
+  read_amp_bytes_per_bit: 0
+  format_version: 4
+  enable_index_compression: 1
+  block_align: 0
+2026/04/21-04:55:57.505029 7ff7be3cfac0        Options.write_buffer_size: 67108864
+2026/04/21-04:55:57.505030 7ff7be3cfac0  Options.max_write_buffer_number: 2
+2026/04/21-04:55:57.505031 7ff7be3cfac0          Options.compression: Snappy
+2026/04/21-04:55:57.505032 7ff7be3cfac0                  Options.bottommost_compression: Disabled
+2026/04/21-04:55:57.505033 7ff7be3cfac0       Options.prefix_extractor: nullptr
+2026/04/21-04:55:57.505033 7ff7be3cfac0   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+2026/04/21-04:55:57.505034 7ff7be3cfac0             Options.num_levels: 7
+2026/04/21-04:55:57.505035 7ff7be3cfac0        Options.min_write_buffer_number_to_merge: 1
+2026/04/21-04:55:57.505035 7ff7be3cfac0     Options.max_write_buffer_number_to_maintain: 0
+2026/04/21-04:55:57.505036 7ff7be3cfac0     Options.max_write_buffer_size_to_maintain: 0
+2026/04/21-04:55:57.505037 7ff7be3cfac0            Options.bottommost_compression_opts.window_bits: -14
+2026/04/21-04:55:57.505037 7ff7be3cfac0                  Options.bottommost_compression_opts.level: 32767
+2026/04/21-04:55:57.505038 7ff7be3cfac0               Options.bottommost_compression_opts.strategy: 0
+2026/04/21-04:55:57.505039 7ff7be3cfac0         Options.bottommost_compression_opts.max_dict_bytes: 0
+2026/04/21-04:55:57.505040 7ff7be3cfac0         Options.bottommost_compression_opts.zstd_max_train_bytes: 0
+2026/04/21-04:55:57.505040 7ff7be3cfac0         Options.bottommost_compression_opts.parallel_threads: 1
+2026/04/21-04:55:57.505041 7ff7be3cfac0                  Options.bottommost_compression_opts.enabled: false
+2026/04/21-04:55:57.505042 7ff7be3cfac0            Options.compression_opts.window_bits: -14
+2026/04/21-04:55:57.505043 7ff7be3cfac0                  Options.compression_opts.level: 32767
+2026/04/21-04:55:57.505043 7ff7be3cfac0               Options.compression_opts.strategy: 0
+2026/04/21-04:55:57.505044 7ff7be3cfac0         Options.compression_opts.max_dict_bytes: 0
+2026/04/21-04:55:57.505049 7ff7be3cfac0         Options.compression_opts.zstd_max_train_bytes: 0
+2026/04/21-04:55:57.505049 7ff7be3cfac0         Options.compression_opts.parallel_threads: 1
+2026/04/21-04:55:57.505050 7ff7be3cfac0                  Options.compression_opts.enabled: false
+2026/04/21-04:55:57.505051 7ff7be3cfac0      Options.level0_file_num_compaction_trigger: 4
+2026/04/21-04:55:57.505051 7ff7be3cfac0          Options.level0_slowdown_writes_trigger: 20
+2026/04/21-04:55:57.505052 7ff7be3cfac0              Options.level0_stop_writes_trigger: 36
+2026/04/21-04:55:57.505053 7ff7be3cfac0                   Options.target_file_size_base: 67108864
+2026/04/21-04:55:57.505054 7ff7be3cfac0             Options.target_file_size_multiplier: 1
+2026/04/21-04:55:57.505054 7ff7be3cfac0                Options.max_bytes_for_level_base: 268435456
+2026/04/21-04:55:57.505055 7ff7be3cfac0 Options.level_compaction_dynamic_level_bytes: 0
+2026/04/21-04:55:57.505056 7ff7be3cfac0          Options.max_bytes_for_level_multiplier: 10.000000
+2026/04/21-04:55:57.505057 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[0]: 1
+2026/04/21-04:55:57.505058 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[1]: 1
+2026/04/21-04:55:57.505059 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[2]: 1
+2026/04/21-04:55:57.505060 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[3]: 1
+2026/04/21-04:55:57.505060 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[4]: 1
+2026/04/21-04:55:57.505061 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[5]: 1
+2026/04/21-04:55:57.505062 7ff7be3cfac0 Options.max_bytes_for_level_multiplier_addtl[6]: 1
+2026/04/21-04:55:57.505062 7ff7be3cfac0       Options.max_sequential_skip_in_iterations: 8
+2026/04/21-04:55:57.505063 7ff7be3cfac0                    Options.max_compaction_bytes: 1677721600
+2026/04/21-04:55:57.505064 7ff7be3cfac0                        Options.arena_block_size: 8388608
+2026/04/21-04:55:57.505064 7ff7be3cfac0   Options.soft_pending_compaction_bytes_limit: 68719476736
+2026/04/21-04:55:57.505065 7ff7be3cfac0   Options.hard_pending_compaction_bytes_limit: 274877906944
+2026/04/21-04:55:57.505066 7ff7be3cfac0       Options.rate_limit_delay_max_milliseconds: 100
+2026/04/21-04:55:57.505067 7ff7be3cfac0                Options.disable_auto_compactions: 0
+2026/04/21-04:55:57.505068 7ff7be3cfac0                        Options.compaction_style: kCompactionStyleLevel
+2026/04/21-04:55:57.505069 7ff7be3cfac0                          Options.compaction_pri: kMinOverlappingRatio
+2026/04/21-04:55:57.505070 7ff7be3cfac0 Options.compaction_options_universal.size_ratio: 1
+2026/04/21-04:55:57.505070 7ff7be3cfac0 Options.compaction_options_universal.min_merge_width: 2
+2026/04/21-04:55:57.505071 7ff7be3cfac0 Options.compaction_options_universal.max_merge_width: 4294967295
+2026/04/21-04:55:57.505072 7ff7be3cfac0 Options.compaction_options_universal.max_size_amplification_percent: 200
+2026/04/21-04:55:57.505072 7ff7be3cfac0 Options.compaction_options_universal.compression_size_percent: -1
+2026/04/21-04:55:57.505073 7ff7be3cfac0 Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+2026/04/21-04:55:57.505074 7ff7be3cfac0 Options.compaction_options_fifo.max_table_files_size: 1073741824
+2026/04/21-04:55:57.505075 7ff7be3cfac0 Options.compaction_options_fifo.allow_compaction: 0
+2026/04/21-04:55:57.505077 7ff7be3cfac0                   Options.table_properties_collectors: 
+2026/04/21-04:55:57.505078 7ff7be3cfac0                   Options.inplace_update_support: 0
+2026/04/21-04:55:57.505078 7ff7be3cfac0                 Options.inplace_update_num_locks: 10000
+2026/04/21-04:55:57.505079 7ff7be3cfac0               Options.memtable_prefix_bloom_size_ratio: 0.000000
+2026/04/21-04:55:57.505080 7ff7be3cfac0               Options.memtable_whole_key_filtering: 0
+2026/04/21-04:55:57.505081 7ff7be3cfac0   Options.memtable_huge_page_size: 0
+2026/04/21-04:55:57.505081 7ff7be3cfac0                           Options.bloom_locality: 0
+2026/04/21-04:55:57.505082 7ff7be3cfac0                    Options.max_successive_merges: 0
+2026/04/21-04:55:57.505085 7ff7be3cfac0                Options.optimize_filters_for_hits: 0
+2026/04/21-04:55:57.505086 7ff7be3cfac0                Options.paranoid_file_checks: 0
+2026/04/21-04:55:57.505087 7ff7be3cfac0                Options.force_consistency_checks: 1
+2026/04/21-04:55:57.505087 7ff7be3cfac0                Options.report_bg_io_stats: 0
+2026/04/21-04:55:57.505088 7ff7be3cfac0                               Options.ttl: 2592000
+2026/04/21-04:55:57.505089 7ff7be3cfac0          Options.periodic_compaction_seconds: 0
+2026/04/21-04:55:57.507176 7ff7be3cfac0 [/version_set.cc:4703] Recovered from manifest file:/tmp/rocksdb_exp1/MANIFEST-000281 succeeded,manifest_file_number is 281, next_file_number is 286, last_sequence is 49, log_number is 277,prev_log_number is 0,max_column_family is 0,min_log_number_to_keep is 0
+2026/04/21-04:55:57.507181 7ff7be3cfac0 [/version_set.cc:4719] Column family [default] (ID 0), log number is 277
+2026/04/21-04:55:57.507383 7ff7be3cfac0 EVENT_LOG_v1 {"time_micros": 1776747357507380, "job": 1, "event": "recovery_started", "log_files": [282]}
+2026/04/21-04:55:57.507386 7ff7be3cfac0 [/db_impl/db_impl_open.cc:795] Recovering log #282 mode 2
+2026/04/21-04:55:57.507406 7ff7be3cfac0 [DEBUG] [/db_impl/db_impl_open.cc:1246] [default] [WriteLevel0TableForRecovery] Level-0 table #286: started
+2026/04/21-04:55:57.510063 7ff7be3cfac0 EVENT_LOG_v1 {"time_micros": 1776747357510046, "cf_name": "default", "job": 1, "event": "table_file_creation", "file_number": 286, "file_size": 797, "table_properties": {"data_size": 39, "index_size": 24, "index_partitions": 0, "top_level_index_size": 0, "index_key_is_user_key": 1, "index_value_is_delta_encoded": 1, "filter_size": 0, "raw_key_size": 15, "raw_average_key_size": 15, "raw_value_size": 8, "raw_average_value_size": 8, "num_data_blocks": 1, "num_entries": 1, "num_deletions": 0, "num_merge_operands": 0, "num_range_deletions": 0, "format_version": 0, "fixed_key_len": 0, "filter_policy": "", "column_family_name": "default", "column_family_id": 0, "comparator": "leveldb.BytewiseComparator", "merge_operator": "StringAppendOperator", "prefix_extractor_name": "nullptr", "property_collectors": "[]", "compression": "Snappy", "compression_options": "window_bits=-14; level=32767; strategy=0; max_dict_bytes=0; zstd_max_train_bytes=0; enabled=0; ", "creation_time": 1776747357, "oldest_key_time": 3, "file_creation_time": 0}}
+2026/04/21-04:55:57.510072 7ff7be3cfac0 [DEBUG] [/db_impl/db_impl_open.cc:1294] [default] [WriteLevel0TableForRecovery] Level-0 table #286: 797 bytes OK
+2026/04/21-04:55:57.510113 7ff7be3cfac0 [/version_set.cc:3944] Creating manifest 287
+2026/04/21-04:55:57.516411 7ff7be3cfac0 EVENT_LOG_v1 {"time_micros": 1776747357516409, "job": 1, "event": "recovery_finished"}
+2026/04/21-04:55:57.516668 7ff7be3cfac0 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 2] Delete /tmp/rocksdb_exp1/MANIFEST-000281 type=3 #281 -- OK
+2026/04/21-04:55:57.516694 7ff7be3cfac0 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000282.log immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.516698 7ff7be3cfac0 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 2] Delete /tmp/rocksdb_exp1/000282.log type=0 #282 -- OK
+2026/04/21-04:55:57.521257 7ff7be3cfac0 [/db_impl/db_impl_open.cc:1610] SstFileManager instance 0x574238db3630
+2026/04/21-04:55:57.521470 7ff7be3cfac0 DB pointer 0x574238db20f0
+2026/04/21-04:55:57.521536 7ff7be3cfac0 [/db_impl/db_impl_compaction_flush.cc:1504] [default] Manual compaction waiting for all other scheduled background compactions to finish
+2026/04/21-04:55:57.521691 7ff7ad7fa640 [/db_impl/db_impl.cc:888] ------- DUMPING STATS -------
+2026/04/21-04:55:57.521713 7ff7ad7fa640 [/db_impl/db_impl.cc:890] 
+** DB Stats **
+Uptime(secs): 0.0 total, 0.0 interval
+Cumulative writes: 0 writes, 0 keys, 0 commit groups, 0.0 writes per commit group, ingest: 0.00 GB, 0.00 MB/s
+Cumulative WAL: 0 writes, 0 syncs, 0.00 writes per sync, written: 0.00 GB, 0.00 MB/s
+Cumulative stall: 00:00:0.000 H:M:S, 0.0 percent
+Interval writes: 0 writes, 0 keys, 0 commit groups, 0.0 writes per commit group, ingest: 0.00 MB, 0.00 MB/s
+Interval WAL: 0 writes, 0 syncs, 0.00 writes per sync, written: 0.00 MB, 0.00 MB/s
+Interval stall: 00:00:0.000 H:M:S, 0.0 percent
+
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      4/1    3.11 KB   0.8      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+  L1     46/0   35.80 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+ Sum     50/1   38.91 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+Uptime(secs): 0.0 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.05 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.05 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [default] **
+
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      4/1    3.11 KB   0.8      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+  L1     46/0   35.80 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+ Sum     50/1   38.91 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.3      0.00              0.00         1    0.003       0      0
+Uptime(secs): 0.0 total, 0.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.05 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+
+** File Read Latency Histogram By Level [default] **
+2026/04/21-04:55:57.523719 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.521343) [/db_impl/db_impl_compaction_flush.cc:2753] [default] Moving #286 to level-1 797 bytes
+2026/04/21-04:55:57.523721 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.523699) EVENT_LOG_v1 {"time_micros": 1776747357523696, "job": 3, "event": "trivial_move", "destination_level": 1, "files": 1, "total_files_size": 797}
+2026/04/21-04:55:57.523722 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.523705) [/db_impl/db_impl_compaction_flush.cc:2782] [default] Moved #1 files to level-1 797 bytes OK: files[3 47 0 0 0 0 0] max score 0.75
+2026/04/21-04:55:57.523752 7ff7be3cfac0 [/db_impl/db_impl_compaction_flush.cc:1513] [default] Manual compaction starting
+2026/04/21-04:55:57.525796 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.523791) [/db_impl/db_impl_compaction_flush.cc:2582] [default] Manual compaction from level-0 to level-1 from (begin) .. (end); will stop at (end)
+2026/04/21-04:55:57.525798 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.523794) [/db_impl/db_impl_compaction_flush.cc:2753] [default] Moving #10 to level-1 796 bytes
+2026/04/21-04:55:57.525799 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.523796) [/db_impl/db_impl_compaction_flush.cc:2753] [default] Moving #7 to level-1 796 bytes
+2026/04/21-04:55:57.525800 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.523798) [/db_impl/db_impl_compaction_flush.cc:2753] [default] Moving #4 to level-1 796 bytes
+2026/04/21-04:55:57.525801 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.525774) EVENT_LOG_v1 {"time_micros": 1776747357525765, "job": 4, "event": "trivial_move", "destination_level": 1, "files": 3, "total_files_size": 2388}
+2026/04/21-04:55:57.525802 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.525780) [/db_impl/db_impl_compaction_flush.cc:2782] [default] Moved #3 files to level-1 2388 bytes OK: files[0 50 0 0 0 0 0] max score 0.00
+2026/04/21-04:55:57.525836 7ff7be3cfac0 [/db_impl/db_impl_compaction_flush.cc:1513] [default] Manual compaction starting
+2026/04/21-04:55:57.525878 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.525873) [/db_impl/db_impl_compaction_flush.cc:2582] [default] Manual compaction from level-1 to level-1 from (begin) .. (end); will stop at (end)
+2026/04/21-04:55:57.525881 7ff7be3cc640 [/compaction/compaction_job.cc:1696] [default] [JOB 5] Compacting 50@1 files to L1, score -1.00
+2026/04/21-04:55:57.525913 7ff7be3cc640 [/compaction/compaction_job.cc:1702] [default] Compaction start summary: Base version 4 Base level 1, inputs: [4(796B) 7(796B) 10(796B) 13(796B) 16(796B) 22(796B) 28(796B) 34(796B) 40(796B) 46(797B) 52(797B) 58(797B) 64(797B) 70(797B) 76(797B) 82(797B) 88(797B) 94(797B) 100(797B) 106(797B) 112(797B) 118(797B) 124(797B) 130(797B) 136(797B) 142(797B) 148(797B) 154(797B) 160(797B) 166(797B) 172(797B) 178(797B) 184(797B) 190(797B) 196(797B) 202(797B) 208(797B) 214(797B) 220(797B) 226(797B) 232(797B) 238(797B) 244(797B) 250(797B) 256(797B) 262(797B) 268(797B) 274(797B) 280(797B) 286(797B)]
+2026/04/21-04:55:57.525934 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357525917, "job": 5, "event": "compaction_started", "compaction_reason": "ManualCompaction", "files_L1": [4, 7, 10, 13, 16, 22, 28, 34, 40, 46, 52, 58, 64, 70, 76, 82, 88, 94, 100, 106, 112, 118, 124, 130, 136, 142, 148, 154, 160, 166, 172, 178, 184, 190, 196, 202, 208, 214, 220, 226, 232, 238, 244, 250, 256, 262, 268, 274, 280, 286], "score": -1, "input_data_size": 39841}
+2026/04/21-04:55:57.528478 7ff7be3cc640 [/compaction/compaction_job.cc:1367] [default] [JOB 5] Generated table #291: 50 keys, 1187 bytes
+2026/04/21-04:55:57.528499 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357528487, "cf_name": "default", "job": 5, "event": "table_file_creation", "file_number": 291, "file_size": 1187, "table_properties": {"data_size": 401, "index_size": 25, "index_partitions": 0, "top_level_index_size": 0, "index_key_is_user_key": 1, "index_value_is_delta_encoded": 1, "filter_size": 0, "raw_key_size": 750, "raw_average_key_size": 15, "raw_value_size": 391, "raw_average_value_size": 7, "num_data_blocks": 1, "num_entries": 50, "num_deletions": 0, "num_merge_operands": 0, "num_range_deletions": 0, "format_version": 0, "fixed_key_len": 0, "filter_policy": "", "column_family_name": "default", "column_family_id": 0, "comparator": "leveldb.BytewiseComparator", "merge_operator": "StringAppendOperator", "prefix_extractor_name": "nullptr", "property_collectors": "[]", "compression": "Snappy", "compression_options": "window_bits=-14; level=32767; strategy=0; max_dict_bytes=0; zstd_max_train_bytes=0; enabled=0; ", "creation_time": 1776747356, "oldest_key_time": 0, "file_creation_time": 1776747357}}
+2026/04/21-04:55:57.529768 7ff7be3cc640 [/compaction/compaction_job.cc:1435] [default] [JOB 5] Compacted 50@1 files to L1 => 1187 bytes
+2026/04/21-04:55:57.531600 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.531556) [/compaction/compaction_job.cc:754] [default] compacted to: files[0 1 0 0 0 0 0] max score 0.00, MB/sec: 15.3 rd, 0.5 wr, level 1, files in(0, 50) out(1) MB in(0.0, 0.0) out(0.0), read-write-amplify(0.0) write-amplify(0.0) OK, records in: 50, records dropped: 0 output_compression: Snappy
+2026/04/21-04:55:57.531616 7ff7be3cc640 (Original Log Time 2026/04/21-04:55:57.531569) EVENT_LOG_v1 {"time_micros": 1776747357531564, "job": 5, "event": "compaction_finished", "compaction_time_micros": 2598, "compaction_time_cpu_micros": 388, "output_level": 1, "num_output_files": 1, "total_output_size": 1187, "num_input_records": 50, "num_output_records": 50, "num_subcompactions": 1, "output_compression": "Snappy", "num_single_delete_mismatches": 0, "num_single_delete_fallthrough": 0, "lsm_state": [0, 1, 0, 0, 0, 0, 0]}
+2026/04/21-04:55:57.531687 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000286.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531691 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000286.sst type=2 #286 -- OK
+2026/04/21-04:55:57.531696 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531694, "job": 5, "event": "table_file_deletion", "file_number": 286}
+2026/04/21-04:55:57.531720 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000280.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531722 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000280.sst type=2 #280 -- OK
+2026/04/21-04:55:57.531724 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531723, "job": 5, "event": "table_file_deletion", "file_number": 280}
+2026/04/21-04:55:57.531745 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000274.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531747 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000274.sst type=2 #274 -- OK
+2026/04/21-04:55:57.531749 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531748, "job": 5, "event": "table_file_deletion", "file_number": 274}
+2026/04/21-04:55:57.531768 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000268.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531770 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000268.sst type=2 #268 -- OK
+2026/04/21-04:55:57.531772 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531771, "job": 5, "event": "table_file_deletion", "file_number": 268}
+2026/04/21-04:55:57.531791 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000262.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531793 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000262.sst type=2 #262 -- OK
+2026/04/21-04:55:57.531795 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531794, "job": 5, "event": "table_file_deletion", "file_number": 262}
+2026/04/21-04:55:57.531813 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000256.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531815 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000256.sst type=2 #256 -- OK
+2026/04/21-04:55:57.531817 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531816, "job": 5, "event": "table_file_deletion", "file_number": 256}
+2026/04/21-04:55:57.531836 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000250.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531838 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000250.sst type=2 #250 -- OK
+2026/04/21-04:55:57.531846 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531846, "job": 5, "event": "table_file_deletion", "file_number": 250}
+2026/04/21-04:55:57.531867 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000244.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531869 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000244.sst type=2 #244 -- OK
+2026/04/21-04:55:57.531871 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531870, "job": 5, "event": "table_file_deletion", "file_number": 244}
+2026/04/21-04:55:57.531889 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000238.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531891 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000238.sst type=2 #238 -- OK
+2026/04/21-04:55:57.531893 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531893, "job": 5, "event": "table_file_deletion", "file_number": 238}
+2026/04/21-04:55:57.531912 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000232.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531913 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000232.sst type=2 #232 -- OK
+2026/04/21-04:55:57.531916 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531915, "job": 5, "event": "table_file_deletion", "file_number": 232}
+2026/04/21-04:55:57.531935 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000226.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531936 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000226.sst type=2 #226 -- OK
+2026/04/21-04:55:57.531939 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531938, "job": 5, "event": "table_file_deletion", "file_number": 226}
+2026/04/21-04:55:57.531957 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000220.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531959 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000220.sst type=2 #220 -- OK
+2026/04/21-04:55:57.531961 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531960, "job": 5, "event": "table_file_deletion", "file_number": 220}
+2026/04/21-04:55:57.531980 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000214.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.531982 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000214.sst type=2 #214 -- OK
+2026/04/21-04:55:57.531984 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357531983, "job": 5, "event": "table_file_deletion", "file_number": 214}
+2026/04/21-04:55:57.532003 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000208.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532005 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000208.sst type=2 #208 -- OK
+2026/04/21-04:55:57.532007 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532006, "job": 5, "event": "table_file_deletion", "file_number": 208}
+2026/04/21-04:55:57.532025 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000202.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532027 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000202.sst type=2 #202 -- OK
+2026/04/21-04:55:57.532029 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532029, "job": 5, "event": "table_file_deletion", "file_number": 202}
+2026/04/21-04:55:57.532048 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000196.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532054 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000196.sst type=2 #196 -- OK
+2026/04/21-04:55:57.532056 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532055, "job": 5, "event": "table_file_deletion", "file_number": 196}
+2026/04/21-04:55:57.532076 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000190.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532078 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000190.sst type=2 #190 -- OK
+2026/04/21-04:55:57.532080 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532080, "job": 5, "event": "table_file_deletion", "file_number": 190}
+2026/04/21-04:55:57.532098 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000184.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532100 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000184.sst type=2 #184 -- OK
+2026/04/21-04:55:57.532102 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532101, "job": 5, "event": "table_file_deletion", "file_number": 184}
+2026/04/21-04:55:57.532120 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000178.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532122 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000178.sst type=2 #178 -- OK
+2026/04/21-04:55:57.532124 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532124, "job": 5, "event": "table_file_deletion", "file_number": 178}
+2026/04/21-04:55:57.532142 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000172.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532144 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000172.sst type=2 #172 -- OK
+2026/04/21-04:55:57.532146 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532145, "job": 5, "event": "table_file_deletion", "file_number": 172}
+2026/04/21-04:55:57.532165 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000166.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532166 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000166.sst type=2 #166 -- OK
+2026/04/21-04:55:57.532168 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532168, "job": 5, "event": "table_file_deletion", "file_number": 166}
+2026/04/21-04:55:57.532186 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000160.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532188 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000160.sst type=2 #160 -- OK
+2026/04/21-04:55:57.532190 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532190, "job": 5, "event": "table_file_deletion", "file_number": 160}
+2026/04/21-04:55:57.532208 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000154.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532210 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000154.sst type=2 #154 -- OK
+2026/04/21-04:55:57.532212 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532211, "job": 5, "event": "table_file_deletion", "file_number": 154}
+2026/04/21-04:55:57.532230 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000148.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532232 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000148.sst type=2 #148 -- OK
+2026/04/21-04:55:57.532237 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532237, "job": 5, "event": "table_file_deletion", "file_number": 148}
+2026/04/21-04:55:57.532256 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000142.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532258 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000142.sst type=2 #142 -- OK
+2026/04/21-04:55:57.532260 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532260, "job": 5, "event": "table_file_deletion", "file_number": 142}
+2026/04/21-04:55:57.532279 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000136.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532280 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000136.sst type=2 #136 -- OK
+2026/04/21-04:55:57.532283 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532282, "job": 5, "event": "table_file_deletion", "file_number": 136}
+2026/04/21-04:55:57.532301 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000130.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532303 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000130.sst type=2 #130 -- OK
+2026/04/21-04:55:57.532305 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532305, "job": 5, "event": "table_file_deletion", "file_number": 130}
+2026/04/21-04:55:57.532324 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000124.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532325 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000124.sst type=2 #124 -- OK
+2026/04/21-04:55:57.532327 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532327, "job": 5, "event": "table_file_deletion", "file_number": 124}
+2026/04/21-04:55:57.532346 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000118.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532348 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000118.sst type=2 #118 -- OK
+2026/04/21-04:55:57.532350 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532350, "job": 5, "event": "table_file_deletion", "file_number": 118}
+2026/04/21-04:55:57.532376 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000112.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532378 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000112.sst type=2 #112 -- OK
+2026/04/21-04:55:57.532380 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532380, "job": 5, "event": "table_file_deletion", "file_number": 112}
+2026/04/21-04:55:57.532399 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000106.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532401 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000106.sst type=2 #106 -- OK
+2026/04/21-04:55:57.532403 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532402, "job": 5, "event": "table_file_deletion", "file_number": 106}
+2026/04/21-04:55:57.532421 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000100.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532423 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000100.sst type=2 #100 -- OK
+2026/04/21-04:55:57.532425 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532424, "job": 5, "event": "table_file_deletion", "file_number": 100}
+2026/04/21-04:55:57.532443 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000094.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532448 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000094.sst type=2 #94 -- OK
+2026/04/21-04:55:57.532451 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532450, "job": 5, "event": "table_file_deletion", "file_number": 94}
+2026/04/21-04:55:57.532470 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000088.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532471 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000088.sst type=2 #88 -- OK
+2026/04/21-04:55:57.532474 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532473, "job": 5, "event": "table_file_deletion", "file_number": 88}
+2026/04/21-04:55:57.532491 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000082.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532493 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000082.sst type=2 #82 -- OK
+2026/04/21-04:55:57.532495 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532494, "job": 5, "event": "table_file_deletion", "file_number": 82}
+2026/04/21-04:55:57.532539 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000076.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532543 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000076.sst type=2 #76 -- OK
+2026/04/21-04:55:57.532547 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532546, "job": 5, "event": "table_file_deletion", "file_number": 76}
+2026/04/21-04:55:57.532575 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000070.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532577 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000070.sst type=2 #70 -- OK
+2026/04/21-04:55:57.532579 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532579, "job": 5, "event": "table_file_deletion", "file_number": 70}
+2026/04/21-04:55:57.532598 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000064.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532600 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000064.sst type=2 #64 -- OK
+2026/04/21-04:55:57.532602 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532602, "job": 5, "event": "table_file_deletion", "file_number": 64}
+2026/04/21-04:55:57.532627 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000058.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532629 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000058.sst type=2 #58 -- OK
+2026/04/21-04:55:57.532631 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532630, "job": 5, "event": "table_file_deletion", "file_number": 58}
+2026/04/21-04:55:57.532650 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000052.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532651 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000052.sst type=2 #52 -- OK
+2026/04/21-04:55:57.532654 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532653, "job": 5, "event": "table_file_deletion", "file_number": 52}
+2026/04/21-04:55:57.532673 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000046.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532675 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000046.sst type=2 #46 -- OK
+2026/04/21-04:55:57.532683 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532682, "job": 5, "event": "table_file_deletion", "file_number": 46}
+2026/04/21-04:55:57.532702 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000040.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532704 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000040.sst type=2 #40 -- OK
+2026/04/21-04:55:57.532706 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532706, "job": 5, "event": "table_file_deletion", "file_number": 40}
+2026/04/21-04:55:57.532723 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000034.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532725 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000034.sst type=2 #34 -- OK
+2026/04/21-04:55:57.532727 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532727, "job": 5, "event": "table_file_deletion", "file_number": 34}
+2026/04/21-04:55:57.532745 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000028.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532747 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000028.sst type=2 #28 -- OK
+2026/04/21-04:55:57.532749 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532748, "job": 5, "event": "table_file_deletion", "file_number": 28}
+2026/04/21-04:55:57.532768 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000022.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532770 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000022.sst type=2 #22 -- OK
+2026/04/21-04:55:57.532772 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532772, "job": 5, "event": "table_file_deletion", "file_number": 22}
+2026/04/21-04:55:57.532789 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000016.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532791 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000016.sst type=2 #16 -- OK
+2026/04/21-04:55:57.532793 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532793, "job": 5, "event": "table_file_deletion", "file_number": 16}
+2026/04/21-04:55:57.532811 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000013.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532812 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000013.sst type=2 #13 -- OK
+2026/04/21-04:55:57.532814 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532814, "job": 5, "event": "table_file_deletion", "file_number": 13}
+2026/04/21-04:55:57.532832 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000010.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532834 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000010.sst type=2 #10 -- OK
+2026/04/21-04:55:57.532836 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532836, "job": 5, "event": "table_file_deletion", "file_number": 10}
+2026/04/21-04:55:57.532854 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000007.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532856 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000007.sst type=2 #7 -- OK
+2026/04/21-04:55:57.532858 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532858, "job": 5, "event": "table_file_deletion", "file_number": 7}
+2026/04/21-04:55:57.532876 7ff7be3cc640 [le/delete_scheduler.cc:69] Deleted file /tmp/rocksdb_exp1/000004.sst immediately, rate_bytes_per_sec 0, total_trash_size 0 max_trash_db_ratio 0.250000
+2026/04/21-04:55:57.532881 7ff7be3cc640 [DEBUG] [/db_impl/db_impl_files.cc:330] [JOB 5] Delete /tmp/rocksdb_exp1/000004.sst type=2 #4 -- OK
+2026/04/21-04:55:57.532883 7ff7be3cc640 EVENT_LOG_v1 {"time_micros": 1776747357532883, "job": 5, "event": "table_file_deletion", "file_number": 4}
+2026/04/21-04:55:57.532922 7ff7be3cfac0 [/db_impl/db_impl.cc:435] Shutdown: canceling all background work
+2026/04/21-04:55:57.533160 7ff7be3cfac0 [/db_impl/db_impl.cc:612] Shutdown complete
