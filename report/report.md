@@ -514,7 +514,131 @@ Compaction is critical here — without it, disk usage would grow forever. Compa
 
 ---
 
-## Experiments
+# Experiments
+### 6.1 Experiment 1 — Read Amplification Reduction
+**Goal:** Show L0 accumulation increases Read Amplification; compaction reduces it.
+
+```
+DB_PATH="/tmp/rocksdb_exp1"
+for i in $(seq 1 50); do
+    ldb --db="$DB_PATH" --create_if_missing \
+        --write_buffer_size=1024 put "key$i" "value_$i" 2>/dev/null
+done
+ldb --db="$DB_PATH" compact 2>/dev/null
+ldb --db="$DB_PATH" scan
+```
+Result from exp1_LOG.txt:
+
+text
+SST files BEFORE: 49 
+SST files AFTER: 1
+compacted to: files[0 1 0 0 0 0 0]
+lsm_state: [0, 1, 0, 0, 0, 0, 0]
+records in: 50, records dropped: 0
+Metric	Before	After
+SST files	49	1
+Read Amplification	49	1
+Level	L0	L1
+49 L0 files → 1 L1 file. Read Amplification reduced from 49 to 1.
+
+### 6.2 Experiment 2 — Stale Version Cleanup
+**Goal:** Multiple versions of same key accumulate; compaction keeps only latest.
+
+```
+DB_PATH="/tmp/rocksdb_exp2"
+for round in $(seq 1 20); do
+    for key in key001 key002 key003 key004 key005; do
+        ldb --db="$DB_PATH" --create_if_missing \
+            put "$key" "version_${round}_data" 2>/dev/null
+    done
+done
+ldb --db="$DB_PATH" compact 2>/dev/null
+ldb --db="$DB_PATH" scan
+```
+Result from notebook output & exp2_LOG.txt:
+
+text
+SST files BEFORE: 8
+SST files AFTER: 3
+last_sequence = 100
+
+Final values:
+key001 : version_20_data
+key002 : version_20_data
+key003 : version_20_data
+key004 : version_20_data
+key005 : version_20_data
+Metric	Value
+Total writes	100 (20 versions × 5 keys)
+last_sequence	100 (confirms all writes)
+SST before → after	8 → 3
+Final keys	5 (all version_20)
+100 writes → 5 live keys. 95 stale records dropped.
+
+### 6.3 Experiment 3 — Tombstone Cleanup
+**Goal:** Delete writes tombstone; compaction physically removes it.
+
+```
+DB_PATH="/tmp/rocksdb_exp3"
+for i in $(seq 1 30); do
+    ldb --db="$DB_PATH" --create_if_missing \
+        put "key$(printf '%03d' $i)" "value_$i" 2>/dev/null
+done
+for i in $(seq 1 20); do
+    ldb --db="$DB_PATH" delete "key$(printf '%03d' $i)" 2>/dev/null
+done
+ldb --db="$DB_PATH" compact 2>/dev/null
+ldb --db="$DB_PATH" scan
+```
+Result from notebook output & exp3_LOG.txt:
+
+text
+BEFORE: 19 SSTs, 10 keys
+AFTER: 1 SSTs, 10 keys
+last_sequence = 50
+
+Remaining keys:
+key021 : value_21
+...
+key030 : value_30
+Metric	Before	After
+SST files	19	1
+last_sequence	50 (30 puts + 20 deletes)	—
+Visible keys	10	10
+Tombstones on disk	20	0
+30 puts + 20 deletes = 50 operations. 19 SSTs → 1. Tombstones physically removed.
+
+### 6.4 Experiment 4 — Write Stall Thresholds
+**Goal:** L0 accumulation beyond level0_slowdown_writes_trigger signals write slowdown.
+
+```
+DB_PATH="/tmp/rocksdb_exp4"
+for i in $(seq 1 25); do
+    ldb --db="$DB_PATH" --create_if_missing \
+        --auto_compaction=false \
+        put "key$(printf '%03d' $i)" "value_$i" 2>/dev/null
+done
+grep -E "slowdown|stop|compaction_trigger" "$DB_PATH"/LOG | head -3
+```
+Result from exp4_LOG.txt:
+
+text
+L0 files accumulated: 24
+
+Options.level0_file_num_compaction_trigger: 4
+Options.level0_slowdown_writes_trigger: 20
+Options.level0_stop_writes_trigger: 36
+
+L0     24/0   18.62 KB   6.0
+
+Increasing compaction threads because we have 24 level-0 files
+Threshold	Value	L0 Count	Status
+Compaction trigger	4	24	Crossed
+Slowdown	20	24	Crossed
+Stop	36	24	Not reached
+L0 Score	—	—	6.0
+24 L0 files → score 6.0. Slowdown threshold crossed. LOG confirms RocksDB would increase compaction threads.
+
 
 ---
 
