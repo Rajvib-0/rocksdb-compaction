@@ -4,7 +4,8 @@
 
 ---
 
-![Logo]()
+![Logo](assets/RocksDB-Logo.png)
+
 
 ## Table of Contents
 - [System Overview](#system-overview)
@@ -28,7 +29,8 @@ RocksDB is an embedded key-value **storage engine** based on the Log-Structured 
 
 It is optimized for high write throughput by converting random writes into **sequential** disk operations. Unlike traditional databases, it runs as a library inside applications. The tradeoff is that additional work (compaction) is required to maintain read performance and storage efficiency.  
 
-![Flow](flow.png)
+![Flow Diagram](assets/flow.png)
+
 
 ### What is Compaction ?
 - **Definition:**  
