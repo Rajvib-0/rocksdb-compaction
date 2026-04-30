@@ -1,87 +1,143 @@
-# rocksdb-compaction
-Reverse engineering RocksDB compaction — Systems Engineering Project
-## Complete Demo Script — All 6 Stages in One Run
+# RocksDB Compaction — Reverse Engineering & Analysis
 
+**Systems Engineering Project**  
+Reverse engineering the internal workings of RocksDB's compaction process.
+
+This repository documents a deep dive into **RocksDB's LSM-tree compaction mechanism**. It includes a complete 6-stage demonstration, detailed code-level analysis, experimental insights, and a comprehensive report.
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Project Goals](#project-goals)
+- [Compaction Stages](#compaction-stages)
+- [Complete Demo Script](#complete-demo-script)
+- [Report & Findings](#report--findings)
+- [Key Design Decisions](#key-design-decisions)
+- [Experiments](#experiments)
+- [How to Run](#how-to-run)
+- [Repository Structure](#repository-structure)
+- [References](#references)
+- [License](#license)
+
+---
+
+## Overview
+
+RocksDB uses a Log-Structured Merge-tree (LSM-tree) that relies heavily on **compaction** to maintain performance by reducing read amplification, removing tombstones, and controlling space amplification.
+
+This project reverse-engineers the entire compaction pipeline — from trigger to cleanup — by analyzing source code, logs, MANIFEST files, and running controlled experiments.
+
+**Inspired by** previous projects: **Faculty Finder** and **Context Seeker**, where efficient key-value storage and fast lookups are critical.
+
+---
+
+## Project Goals
+
+- Understand the **6-stage compaction execution path** in detail.
+- Analyze important design decisions and their trade-offs.
+- Study key parameters: `kMinOverlappingRatio`, `max_bytes_for_level_base`, `target_file_size_base`, `compaction_pri`, etc.
+- Identify common failure modes (write stalls, compaction storms, high write amplification).
+- Provide practical tuning recommendations.
+
+---
+
+## Compaction Stages
+
+The compaction process in RocksDB consists of **6 major stages**:
+
+1. **Trigger** — When compaction is needed (L0 file count or level size ratio)
+2. **Dispatch** — Scheduling compaction on background threads
+3. **Picking** — Choosing which files to compact (score-based + file picking policy)
+4. **Merge** — Actual merging of SST files (merge loop)
+5. **Install** — Atomically installing new version via MANIFEST
+6. **Cleanup** — Deleting old SST files
+
+---
+
+## Complete Demo Script
+
+
+
+## Report & Findings
+
+Detailed technical report covering:
+
+- In-depth code walkthrough
+- Design decisions with trade-offs
+- Failure analysis (write stalls, compaction storms, space amplification, etc.)
+- Key tuning parameters and their impact
+
+**Full Report**: [`report/report.md`](report/report.md)
+
+---
+
+## Key Design Decisions
+
+- Background compaction using dedicated threads
+- Score-based level prioritization
+- Immutable SST files
+- Write Stalls as backpressure mechanism
+- File picking policies (`kMinOverlappingRatio` vs others)
+
+---
+
+## Experiments
+
+- Read amplification before vs after compaction
+- Stale version cleanup
+- Tombstone removal effectiveness
+- Impact of compaction on write stalls
+
+Results and flows are available in the [`report/`](report/) and [`experiments/`](experiments/) folders.
+
+---
+
+## How to Run
+
+### Prerequisites
 ```bash
-#!/bin/bash
-# ============================================================
-# RocksDB Compaction Execution Path — Full Demo
-# Demonstrates all 6 stages end-to-end
-# Requires: sudo apt-get install -y rocksdb-tools
-# ============================================================
-
-DB=/tmp/rocksdb_full_demo
-rm -rf $DB && mkdir -p $DB
-
-echo "============================================"
-echo " STAGE 1: TRIGGER — Write keys, fill L0"
-echo "============================================"
-for i in $(seq 1 20); do
-  ldb --db=$DB --create_if_missing \
-      put "key$(printf '%03d' $i)" "value_$i" 2>/dev/null
-done
-echo "L0 SST files created:"
-ls $DB/*.sst | wc -l
-echo "MANIFEST (overlapping L0, high RA):"
-ldb --db=$DB manifest_dump 2>&1 | grep -E "level 0|seq:" | head -5
-echo "WAL file (crash-recovery record):"
-ls -lh $DB/*.log
-
-echo ""
-echo "============================================"
-echo " STAGE 2: DISPATCH — confirm config"
-echo "============================================"
-grep "level0_file_num_compaction_trigger" $DB/LOG
-
-echo ""
-echo "============================================"
-echo " STAGE 3-4: PICKING + MERGE — run compaction"
-echo "============================================"
-ldb --db=$DB compact
-echo "Compaction inputs picked (from LOG):"
-grep "Compaction start summary" $DB/LOG | tail -1
-echo "Merge loop result (from LOG):"
-grep "records in" $DB/LOG | tail -1
-
-echo ""
-echo "============================================"
-echo " STAGE 5: INSTALL — VersionEdit + MANIFEST"
-echo "============================================"
-echo "New MANIFEST state:"
-ldb --db=$DB manifest_dump 2>&1
-
-echo ""
-echo "============================================"
-echo " STAGE 6: CLEANUP — old SSTs deleted"
-echo "============================================"
-echo "Files deleted:"
-grep "Deleted file.*sst" $DB/LOG | wc -l
-echo "SST files remaining:"
-ls $DB/*.sst | wc -l
-echo "All data accessible after compaction:"
-ldb --db=$DB scan
-
-echo ""
-echo "============================================"
-echo " RESULT"
-echo "============================================"
-echo "Before : 19 overlapping L0 SST files | Read Amplification = 19"
-echo "After  :  1 clean SST file at L6     | Read Amplification = 1"
-echo "Outcome: Stale versions dropped, Tombstones dropped,"
-echo "         MANIFEST updated, Old files deleted"
+sudo apt-get install -y rocksdb-tools ldb
 ```
 
+
+rocksdb-compaction/
+├── demo/                  # Complete demo scripts
+├── report/                # Detailed technical report
+├── experiments/           # Experiment scripts and results
+├── docs/                  # Additional documentation
+├── slides/                # Presentation slides
+├── README.md
+└── LICENSE 
+
+## References
+
+### Official RocksDB Documentation
+
+- [RocksDB Compaction](https://github.com/facebook/rocksdb/wiki/Compaction) — Official wiki explaining compaction styles, algorithms, and options.
+- [Leveled Compaction](https://github.com/facebook/rocksdb/wiki/Leveled-Compaction) — Detailed explanation of leveled compaction, score calculation, and target sizes.
+- [Universal Compaction](https://github.com/facebook/rocksdb/wiki/Universal-Compaction) — Documentation for Universal (Tiered) compaction style.
+- [RocksDB Tuning Guide](https://github.com/facebook/rocksdb/wiki/RocksDB-Tuning-Guide) — Best practices for tuning compaction parameters including `max_bytes_for_level_base`, `target_file_size_base`, and `compaction_pri`.
+- [RocksDB GitHub Repository](https://github.com/facebook/rocksdb) — Source code (especially `compaction_picker_level.cc`, `db_impl_compaction_flush.cc`, `version_storage_info.cc`).
+
+### Academic Papers & Related Work
+
+- Dostoevsky: Better Space-Time Trade-offs for LSM-tree based Key-Value Stores. Harvard University, 2017.
+- Optimizing Space Amplification in RocksDB. CIDR 2017.
+- Characterize LSM-tree Compaction Performance via On-the-fly Parameter Tuning (arXiv, 2026).
+- Rethinking LSM-tree based Key-Value Stores: A Survey (arXiv, 2025).
+- Low Tail Latency and I/O Amplification in LSM-based KV Stores (arXiv, 2024).
+
+### Additional Resources
+
+- Blog: "Name That Compaction Algorithm" by Mark Callaghan (smalldatum.blogspot.com).
+- MSLS: A Low-Latency LSM-tree Implementation (FAST 2016).
+
 ---
 
-## Summary — What Each Stage Proves
+**Last Updated**: April 2026  
+**Note**: All RocksDB wiki links were accessed in April 2026. 
 
-| Stage | Key Evidence | Command to See It |
-|---|---|---|
-| **1 — Trigger** | 19 L0 files, score = 4.75 | `manifest_dump` |
-| **2 — Dispatch** | `compaction_trigger: 4` in LOG | `grep compaction_trigger LOG` |
-| **3 — Picking** | All L0 files listed as inputs | `grep "Compaction start summary" LOG` |
-| **4 — Merge Loop** | `num_input: 4 -> num_output: 2` | `grep "records in" LOG` |
-| **5 — Install** | 1 file at L6 in MANIFEST | `manifest_dump` after compact |
-| **6 — Cleanup** | `Deleted file` lines in LOG | `grep "Deleted file" LOG` |
-
----
+## License
+This project is licensed under the MIT License.
