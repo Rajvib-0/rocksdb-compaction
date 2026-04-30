@@ -387,7 +387,7 @@ SSTs remaining on disk:
 
 RocksDB uses **Leveled Compaction** by default. The following diagram shows the simple step-by-step flow of how compaction works.
 
-**Figure 3.1: Leveled Compaction Algorithm Flow in RocksDB**
+![Leveled Compaction Algorithm Flow](assets/compaction.jpeg)
 
 
 ### Simple Explanation of the Flow
