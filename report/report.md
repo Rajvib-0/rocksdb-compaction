@@ -640,12 +640,72 @@ Slowdown	20	24	Crossed
 Stop	36	24	Not reached
 L0 Score	—	—	6.0
 24 L0 files → score 6.0. Slowdown threshold crossed. LOG confirms RocksDB would increase compaction threads.
+## 7. Failure Analysis
 
+### 7.1 Common Failure Modes Observed
+
+1. **Compaction Storms**
+   - When multiple levels become eligible simultaneously, RocksDB can schedule too many compactions, causing high disk I/O and CPU contention.
+   - Result: Temporary write stalls and increased tail latency.
+
+2. **Write Stall Cascades**
+   - If background compaction cannot keep up with ingestion rate (especially with heavy updates/deletes), L0 grows beyond `level0_stop_writes_trigger`.
+   - User writes are fully stopped → application-level timeouts.
+
+3. **High Write Amplification**
+   - Immutable SST files force data to be rewritten multiple times as it moves from L0 → L1 → L2 ...
+   - In update-heavy workloads, WA can easily exceed 10–20×.
+
+4. **Space Amplification due to Tombstones**
+   - Deleted keys (tombstones) continue to occupy space until the compaction that drops them runs.
+   - In workloads with frequent deletes, space usage can temporarily spike.
+
+5. **Crash During Compaction**
+   - Because of the atomic version update via MANIFEST, RocksDB usually recovers cleanly. However, partial SST files may remain and consume disk space until manual cleanup.
+
+### 7.2 Limitations of Current Design
+
+- The default file picking policy (`kMinOverlappingRatio`) is not always optimal for skewed or hotspot workloads.
+- Score-based prioritization is heuristic and can be suboptimal compared to an ideal offline picker.
+- No built-in adaptive mechanism that switches between Leveled vs Universal based on workload pattern.
+- Heavy reliance on manual tuning of parameters (`max_bytes_for_level_base`, `target_file_size_base`, `compaction_pri`, etc.).
+
+### 7.3 Mitigation Strategies
+
+- Increase `max_background_compactions` and `max_subcompactions`.
+- Use `compaction_pri = kOldestLargestSeqFirst` or `kRoundRobin` for better write amplification on certain workloads.
+- Schedule manual compactions during low-traffic periods.
+- Monitor `rocksdb.compaction.*` and `rocksdb.write.stall.*` statistics aggressively.
+- Consider Universal compaction for write-heavy workloads where read amplification is less critical.
+
+**Key Insight**: Many "failures" in RocksDB are actually intentional design trade-offs to maintain bounded read amplification at the cost of write amplification and occasional stalls.
 
 ---
 
-## Failure Analysis
+## 8. References
+
+### Official RocksDB Documentation
+
+- [RocksDB Compaction](https://github.com/facebook/rocksdb/wiki/Compaction) — Official wiki explaining compaction styles, algorithms, and options.
+- [Leveled Compaction](https://github.com/facebook/rocksdb/wiki/Leveled-Compaction) — Detailed explanation of leveled compaction, score calculation, and target sizes.
+- [Universal Compaction](https://github.com/facebook/rocksdb/wiki/Universal-Compaction) — Documentation for Universal (Tiered) compaction style.
+- [RocksDB Tuning Guide](https://github.com/facebook/rocksdb/wiki/RocksDB-Tuning-Guide) — Best practices for tuning compaction parameters including `max_bytes_for_level_base`, `target_file_size_base`, and `compaction_pri`.
+- [RocksDB GitHub Repository](https://github.com/facebook/rocksdb) — Source code (especially `compaction_picker_level.cc`, `db_impl_compaction_flush.cc`, `version_storage_info.cc`).
+
+### Academic Papers & Related Work
+
+- Dostoevsky: Better Space-Time Trade-offs for LSM-tree based Key-Value Stores. Harvard University, 2017.
+- Optimizing Space Amplification in RocksDB. CIDR 2017.
+- Characterize LSM-tree Compaction Performance via On-the-fly Parameter Tuning (arXiv, 2026).
+- Rethinking LSM-tree based Key-Value Stores: A Survey (arXiv, 2025).
+- Low Tail Latency and I/O Amplification in LSM-based KV Stores (arXiv, 2024).
+
+### Additional Resources
+
+- Blog: "Name That Compaction Algorithm" by Mark Callaghan (smalldatum.blogspot.com).
+- MSLS: A Low-Latency LSM-tree Implementation (FAST 2016).
 
 ---
 
-## References
+**Last Updated**: April 2026  
+**Note**: All RocksDB wiki links were accessed in April 2026.
